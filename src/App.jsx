@@ -126,10 +126,7 @@ class App extends PureComponent {
 						<Lottie options={defaultLottieOptions} height={150} width={150} />
 					</div>
 				) : (
-					<Carousel
-						data={weatherData ? weatherData.list : [1, 2, 3, 4, 5, 6]}
-						temperatureUnit={temperatureUnit}
-					/>
+					<Carousel data={weatherData ? weatherData.list : [1, 2, 3, 4, 5, 6]} temperatureUnit={temperatureUnit} />
 				)}
 			</Container>
 		);

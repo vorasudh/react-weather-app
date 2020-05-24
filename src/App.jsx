@@ -54,7 +54,6 @@ class App extends PureComponent {
 		this.cities = [];
 		this.state = {
 			isLoading: true,
-			isFirstTimeLoading: true,
 			selectedCity: defaultCity,
 			temperatureUnit: 'metric',
 		};
@@ -71,7 +70,7 @@ class App extends PureComponent {
 		try {
 			const data = await fetchWeatherData(selectedCity.id, temperatureUnit);
 			setWeatherDataDispatch(data);
-			this.setState({ isLoading: false, isFirstTimeLoading: false });
+			this.setState({ isLoading: false });
 		} catch (error) {
 			if (process.env.NODE_ENV === 'development') {
 				console.log('error', error);
@@ -95,15 +94,8 @@ class App extends PureComponent {
 	};
 
 	render() {
-		const { temperatureUnit, isLoading, isFirstTimeLoading } = this.state;
+		const { temperatureUnit, isLoading } = this.state;
 		const { weatherData } = this.props;
-		if (isFirstTimeLoading) {
-			return (
-				<div className='loading'>
-					<Lottie options={defaultLottieOptions} height={150} width={150} />
-				</div>
-			);
-		}
 		return (
 			<Container maxWidth='md' className='container'>
 				<div className='selection-wrapper'>
@@ -129,11 +121,16 @@ class App extends PureComponent {
 						</RadioGroup>
 					</FormControl>
 				</div>
-				<Carousel
-					data={weatherData ? weatherData.list : [1, 2, 3, 4, 5, 6]}
-					temperatureUnit={temperatureUnit}
-					isLoading={isLoading}
-				/>
+				{isLoading ? (
+					<div className='loading'>
+						<Lottie options={defaultLottieOptions} height={150} width={150} />
+					</div>
+				) : (
+					<Carousel
+						data={weatherData ? weatherData.list : [1, 2, 3, 4, 5, 6]}
+						temperatureUnit={temperatureUnit}
+					/>
+				)}
 			</Container>
 		);
 	}

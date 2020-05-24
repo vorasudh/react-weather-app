@@ -1,7 +1,7 @@
 import React from 'react';
 import Slider from 'react-slick';
 
-import SliderItem, { SliderItemEmpty } from '../sliderItem';
+import SliderItem from '../sliderItem';
 import './styles.css';
 
 const SlickSettings = {
@@ -29,14 +29,10 @@ const SlickSettings = {
 	],
 };
 
-export default ({ data = [], temperatureUnit = '', isLoading = false }) => (
+export default ({ data = [], temperatureUnit = '' }) => (
 	<Slider {...SlickSettings}>
-		{data.map(item =>
-			isLoading ? (
-				<SliderItemEmpty key={item} />
-			) : (
-				<SliderItem key={item.dt} item={item} temperatureUnit={temperatureUnit} />
-			)
-		)}
+		{data.map(item => (
+			<SliderItem key={item.dt} item={item} temperatureUnit={temperatureUnit} />
+		))}
 	</Slider>
 );

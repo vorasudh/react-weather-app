@@ -6,7 +6,6 @@ import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableRow from '@material-ui/core/TableRow';
-import Skeleton from '@material-ui/lab/Skeleton';
 import moment from 'moment';
 
 import './styles.css';
@@ -51,47 +50,3 @@ export default ({ item, temperatureUnit }) => {
 		</Card>
 	);
 };
-
-export const SliderItemEmpty = () => (
-	<Card raised elevation={2} variant='elevation' className='skeleton'>
-		<CardHeader title={<Skeleton />} subheader={<Skeleton />} />
-		<CardContent>
-			<Table className='data-table' aria-label='simple table'>
-				<TableBody>
-					<TableRow>
-						<TableCell>
-							<Skeleton width='50%' />
-						</TableCell>
-						<TableCell align='right'>
-							<Skeleton width='25%' />
-						</TableCell>
-					</TableRow>
-					<TableRow>
-						<TableCell>
-							<Skeleton width='50%' />
-						</TableCell>
-						<TableCell align='right'>
-							<Skeleton width='25%' />
-						</TableCell>
-					</TableRow>
-					<TableRow>
-						<TableCell>
-							<Skeleton width='50%' />
-						</TableCell>
-						<TableCell align='right'>
-							<Skeleton width='25%' />
-						</TableCell>
-					</TableRow>
-					<TableRow>
-						<TableCell>
-							<Skeleton width='50%' />
-						</TableCell>
-						<TableCell align='right'>
-							<Skeleton width='25%' />
-						</TableCell>
-					</TableRow>
-				</TableBody>
-			</Table>
-		</CardContent>
-	</Card>
-);

@@ -15,13 +15,7 @@ const SlickSettings = {
 	arrows: true,
 	responsive: [
 		{
-			breakpoint: 960,
-			settings: {
-				slidesToShow: 2,
-			},
-		},
-		{
-			breakpoint: 768,
+			breakpoint: 767,
 			settings: {
 				slidesToShow: 1,
 			},

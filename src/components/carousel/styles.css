@@ -1,0 +1,23 @@
+.slick-slider {
+	margin-top: 100px;
+}
+
+.slick-next,
+.slick-prev {
+	top: -20%;
+	transform: none;
+}
+
+.slick-next:before,
+.slick-prev:before {
+	color: #3f50b5;
+	font-size: 40px;
+}
+
+.slick-next {
+	right: 15px;
+}
+
+.slick-prev {
+	left: 0;
+}

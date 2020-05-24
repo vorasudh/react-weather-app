@@ -1,0 +1,6 @@
+// .eslintignore
+build/*
+public/*
+src/serviceWorker.js
+node_modules/
+src/*test*
